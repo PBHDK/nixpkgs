@@ -35,6 +35,8 @@ stdenv.mkDerivation rec {
 
   outputs = [ "out" ] ++ lib.optional (!headersOnly) "dev";
 
+  dontStrip = true;
+
   patches = [
     ./gnu-install-dirs.patch
   ] ++ lib.optionals stdenv.hostPlatform.isMusl [
